@@ -56,7 +56,6 @@ const ImageOverlay: React.FC<{
   alt: string;
   onClose: () => void;
 }> = ({ image, alt, onClose }) => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const imgContainerRef = React.useRef<HTMLDivElement>(null);
 
   const handleFullscreen = () => {
@@ -66,7 +65,6 @@ const ImageOverlay: React.FC<{
       } else if ((imgContainerRef.current as any).webkitRequestFullscreen) {
         (imgContainerRef.current as any).webkitRequestFullscreen();
       }
-      setIsFullscreen(true);
     }
   };
 
@@ -90,7 +88,7 @@ const ImageOverlay: React.FC<{
   React.useEffect(() => {
     const exitHandler = () => {
       if (!document.fullscreenElement) {
-        setIsFullscreen(false);
+        // setIsFullscreen(false);
       }
     };
     document.addEventListener("fullscreenchange", exitHandler);
