@@ -9,8 +9,8 @@ const RouteList: React.FC = () => {
     <Routes>
       {/* Add your routes here following this pattern: */}
       {/* <Route path="/your-path" element={<YourComponent />} /> */}
+      <Route path="/:tenantName/:category/:categoryId/:tenantId" element={<HomePage />} />
       <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<HomePage />} />
     </Routes>
     </BrowserRouter>
   );

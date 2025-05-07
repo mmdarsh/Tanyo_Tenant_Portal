@@ -10,12 +10,6 @@ const NotFound: React.FC = () => {
         <p className="text-xl text-gray-600 mb-8">
           Oops! The page you're looking for doesn't exist or has been moved.
         </p>
-        <Link 
-          to="/" 
-          className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-medium hover:bg-blue-700 transition-colors duration-200 shadow-lg hover:shadow-xl"
-        >
-          Go Back Home
-        </Link>
       </div>
     </div>
   );

@@ -11,7 +11,7 @@ const Header: React.FC = () => {
   const [showDetails, setShowDetails] = useState(false);
 
   return (
-    <header className="bg-white w-full p-4 md:p-6 border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-white w-full p-4 md:p-6 border-b border-gray-200">
       <div className="w-full  mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4 md:gap-8">
         {/* Left: Logo and Company Name */}
         <div className="flex flex-col md:flex-row items-start md:items-center w-full md:w-auto gap-2 md:gap-4">
