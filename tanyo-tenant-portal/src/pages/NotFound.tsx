@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const NotFound: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
       <div className="max-w-lg w-full text-center">
@@ -10,6 +12,12 @@ const NotFound: React.FC = () => {
         <p className="text-xl text-gray-600 mb-8">
           Oops! The page you're looking for doesn't exist or has been moved.
         </p>
+        <button 
+          onClick={() => navigate('/')}
+          className="bg-[#ffc901] text-black px-6 py-3 rounded-lg hover:bg-yellow-400 transition-colors"
+        >
+          Go Back Home
+        </button>
       </div>
     </div>
   );

@@ -1,9 +1,14 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Navigate } from 'react-router-dom';
 import Body from "../components/Body";
 import Header from "../components/Header";
 
 const HomePage = () => {
     const { tenantName, category, categoryId, tenantId } = useParams();
+
+    // If required parameters are missing, redirect to 404
+    if (!categoryId || !tenantId) {
+        return <Navigate to="/404" replace />;
+    }
 
     const parseUrlParams = () => {
         return {
