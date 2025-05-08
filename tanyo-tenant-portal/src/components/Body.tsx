@@ -57,10 +57,14 @@ const ImageOverlay: React.FC<{
   onClose: () => void;
 }> = ({ image, alt, onClose }) => {
   const imgContainerRef = React.useRef<HTMLDivElement>(null);
+  const [imgMaxSize, setImgMaxSize] = useState('max-h-[70vh] max-w-[90vw]');
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const handleFullscreen = () => {
     if (imgContainerRef.current) {
       if (imgContainerRef.current.requestFullscreen) {
+        setImgMaxSize('');
+        setIsFullScreen(true);
         imgContainerRef.current.requestFullscreen();
       } else if ((imgContainerRef.current as any).webkitRequestFullscreen) {
         (imgContainerRef.current as any).webkitRequestFullscreen();
@@ -113,10 +117,11 @@ const ImageOverlay: React.FC<{
         <img
           src={image}
           alt={alt}
-          className="max-h-[70vh] max-w-[90vw] rounded shadow-lg object-contain bg-white"
+          className={`${imgMaxSize} rounded shadow-lg object-contain bg-white`}
         />
         {/* Controls */}
-        <div className="mt-6 flex flex-row flex-wrap gap-4 justify-center items-center w-full">
+        {!isFullScreen && (
+            <div className="mt-6 flex flex-row flex-wrap gap-4 justify-center items-center w-full">
           <button
             className="bg-[#ffc901] text-black p-2 rounded-full shadow hover:bg-yellow-400 text-xl"
             onClick={handleFullscreen}
@@ -132,6 +137,8 @@ const ImageOverlay: React.FC<{
             <FiDownload />
           </button>
         </div>
+        )}
+        
       </div>
     </div>
   );
